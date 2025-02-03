@@ -4,8 +4,8 @@ function updateIcon(state){
 	var color = state ? [255, 0, 0, 255] : [190, 190, 190, 230];
 	var text = state ? 'On' : 'Off';
 
-	chrome.browserAction.setBadgeBackgroundColor({color: color});
-	chrome.browserAction.setBadgeText({text: text});
+	chrome.action.setBadgeBackgroundColor({color: color});
+	chrome.action.setBadgeText({text: text});
 }
 
 function setState(state){
@@ -18,7 +18,7 @@ function getState(callback){
 	});
 }
 
-chrome.browserAction.onClicked.addListener(function () {
+chrome.action.onClicked.addListener(function () {
 	getState(function(state){
 		var newState = !state;
 		updateIcon(newState);
