@@ -29,3 +29,11 @@ chrome.action.onClicked.addListener(function () {
 getState(function(state) {
 	updateIcon(state);
 });
+
+chrome.webNavigation.onDOMContentLoaded.addListener(details => {
+  chrome.tabs.sendMessage(details.tabId, { action: "checkState" });
+});
+
+chrome.webNavigation.onHistoryStateUpdated.addListener(details => {
+  chrome.tabs.sendMessage(details.tabId, { action: "checkState" });
+});

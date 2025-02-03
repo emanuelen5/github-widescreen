@@ -21,3 +21,11 @@ chrome.storage.onChanged.addListener(function (data) {
 getState(function(state) {
   toggleCssClass(state);
 });
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "checkState") {
+    getState(function(state) {
+      toggleCssClass(state);
+    });
+  }
+});
