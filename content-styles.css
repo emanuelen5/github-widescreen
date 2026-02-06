@@ -104,3 +104,7 @@
 .wide .container-xl {
   max-width: 100%;
 }
+
+#diff-comparison-viewer-container .width-full div {
+  max-width: none !important;
+}
